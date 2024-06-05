@@ -1,0 +1,11 @@
+[user]
+	email = 72962798+SanjeetBalamurugan@users.noreply.github.com
+	name = SanjeetBalamurugan
+[credential]
+	helper = 
+	helper = /usr/local/bin/git-credential-manager
+	helper = store
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[push]
+	default = simple
