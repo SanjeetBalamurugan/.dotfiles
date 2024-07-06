@@ -37,7 +37,7 @@ sudo $PKG_MGR update
 sudo $PKG_MGR upgrade
 
 echo "======= Installing Programs Using $PKG_MGR ======="
-sudo $PKG_MGR install git curl wget unzip vim
+sudo $PKG_MGR install git curl wget unzip vim htop
 
 echo "======= Installing .appimage Packages ======="
 mkdir -p $PKG_INSTALL
