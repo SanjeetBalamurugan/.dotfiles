@@ -1,1 +1,3 @@
 .app_installs/
+venv/
+__pycache__/
