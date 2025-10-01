@@ -5,8 +5,10 @@ import utils.appimage as appimage
 import utils.superuser as superuser
 
 def printDashes(symbol: str) -> None:
-    print(os.get_terminal_size().columns)
-    return symbol * os.get_terminal_size().columns
+    if os.get_terminal_size().columns != 0:
+        return symbol * os.get_terminal_size().columns
+    else:
+        return 69
 
 def updateRepos(pacman: str) -> None:
     print(printDashes("="))
