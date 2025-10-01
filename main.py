@@ -8,7 +8,7 @@ def printDashes(symbol: str) -> str:
     if os.get_terminal_size().columns != 0:
         return symbol * os.get_terminal_size().columns
     else:
-        return 69
+        return symbol * 69
 
 def updateRepos(pacman: str) -> None:
     print(printDashes("="))
