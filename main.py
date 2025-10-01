@@ -5,6 +5,7 @@ import utils.appimage as appimage
 import utils.superuser as superuser
 
 def printDashes(symbol: str) -> None:
+    print(os.get_terminal_size().columns)
     return symbol * os.get_terminal_size().columns
 
 def updateRepos(pacman: str) -> None:
