@@ -2,16 +2,19 @@ import os
 from subprocess import DEVNULL, STDOUT, check_call
 
 
+import os
+
 def isInHome() -> bool:
     currDir = os.getcwd()
-    homePath = os.environ["HOME"]
+    homePath = os.environ.get("HOME", "")
 
-    if isUnix():
-        ps = "/".join(currDir.split("/")[:-1:])
-        if homePath == ps:
+    if os.name == "posix":
+        parentDir = os.path.dirname(currDir)
+        
+        if os.path.realpath(homePath) == os.path.realpath(parentDir):
             return True
 
-    print(f"UTIL:{currDir}\n{homePath}")
+    print(f"UTIL: {currDir}\nHOME: {homePath}")
 
     return False
 
