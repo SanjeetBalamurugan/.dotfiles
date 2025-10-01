@@ -4,12 +4,14 @@ import utils.linux as linux
 import utils.appimage as appimage
 import utils.superuser as superuser
 
+def printDashes(symbol: str) -> None:
+    return symbol * os.get_terminal_size().columns
 
 def updateRepos(pacman: str) -> None:
-    print("=" * 60)
+    print(printDashes("="))
     print("Updating Repos")
     os.system(f"sudo {pacman} update && sudo {pacman} upgrade")
-    print("=" * 60)
+    print(printDashes("="))
 
 
 def installPackages(pacman: str) -> None:
@@ -35,17 +37,17 @@ def installAppImagePrograms() -> None:
 
 def mainLinux():
     if not util.isInHome():
-        print("=" * 60)
+        print(printDashes("="))
         print("The .dotfiles directory does not exist in the home directory")
         print("Please ensure the .dotfiles directory exists and try again.")
-        print("=" * 60)
+        print(printDashes("="))
         exit(1)
 
     if not superuser.isInPrivilegedMode():
-        print("=" * 63)
+        print(printDashes("="))
         print("The Python Script Needs To Be In SuperUser Or Admin Mode To Run")
         print("Trying To automatically switch to super user")
-        print("=" * 63 + "\n")
+        print(printDashes("="))
         superuser.runInPrivilegedMode()
 
     pacman = util.getPackageManagerLinux()
@@ -70,7 +72,7 @@ def mainLinux():
             installAppImagePrograms()
         elif command == 4:
             print("Thanks For Using This Program!!!")
-            print("=" * 60)
+            print(printDashes("="))
             exit(1)
         else:
             print(f"Unknown Command No.: {command}")
