@@ -11,7 +11,7 @@ def isInHome() -> bool:
     if os.name == "posix":
         parentDir = os.path.dirname(currDir)
         
-        if os.path.realpath(homePath) == os.path.realpath(parentDir):
+        if os.path.realpath(homePath + "/.dotfiles") == os.path.realpath(parentDir):
             return True
 
     print(f"UTIL: {currDir}\nHOME: {homePath}")
